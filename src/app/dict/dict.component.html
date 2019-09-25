@@ -1,0 +1,79 @@
+<div class="row">
+        <div class="col-md-12">
+            <a (click)="getInfo()" class="btn btn-danger">get</a>
+
+        </div>
+    </div>
+
+<div class="row">
+        <div class="col-md-12">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">a</th>
+                    <th scope="col">b</th>
+                    <th scope="col">c</th>
+                    <th scope="col">d</th>
+                    <th scope="col">e</th>
+                    <th scope="col">f</th>
+                    <th scope="col">g</th>
+                    <th scope="col">h</th>
+                    <th scope="col">i</th>
+                    <th scope="col">j</th>
+                    <th scope="col">k</th>
+                    <th scope="col">l</th>
+                    <th scope="col">m</th>
+                    <th scope="col">n</th>
+                    <th scope="col">o</th>
+                    <th scope="col">p</th>
+                    <th scope="col">q</th>
+                    <th scope="col">r</th>
+                    <th scope="col">s</th>
+                    <th scope="col">t</th>
+                    <th scope="col">u</th>
+                    <th scope="col">v</th>
+                    <th scope="col">w</th>
+                    <th scope="col">x</th>
+                    <th scope="col">y</th>
+                    <th scope="col">z</th>
+                    <th scope="col">suma</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <!-- ngClass para pintar segun ocurrencia -->
+                  <tr *ngFor="let ele of paraTabla; let i = index">
+                    <th scope="row">{{i}}</th>
+                    <td>{{!!ele['a'] ? ele['a'] : 0}}</td>
+                    <td>{{!!ele['b'] ? ele['b'] : 0}}</td>
+                    <td>{{!!ele['c'] ? ele['c'] : 0}}</td>
+                    <td>{{!!ele['d'] ? ele['d'] : 0}}</td>
+                    <td>{{!!ele['e'] ? ele['e'] : 0}}</td>
+                    <td>{{!!ele['f'] ? ele['f'] : 0}}</td>
+                    <td>{{!!ele['g'] ? ele['g'] : 0}}</td>
+                    <td>{{!!ele['h'] ? ele['h'] : 0}}</td>
+                    <td>{{!!ele['i'] ? ele['i'] : 0}}</td>
+                    <td>{{!!ele['j'] ? ele['j'] : 0}}</td>
+                    <td>{{!!ele['k'] ? ele['k'] : 0}}</td>
+                    <td>{{!!ele['l'] ? ele['l'] : 0}}</td>
+                    <td>{{!!ele['m'] ? ele['m'] : 0}}</td>
+                    <td>{{!!ele['n'] ? ele['n'] : 0}}</td>
+                    <td>{{!!ele['o'] ? ele['o'] : 0}}</td>
+                    <td>{{!!ele['p'] ? ele['p'] : 0}}</td>
+                    <td>{{!!ele['q'] ? ele['q'] : 0}}</td>
+                    <td>{{!!ele['r'] ? ele['r'] : 0}}</td>
+                    <td>{{!!ele['s'] ? ele['s'] : 0}}</td>
+                    <td>{{!!ele['t'] ? ele['t'] : 0}}</td>
+                    <td>{{!!ele['u'] ? ele['u'] : 0}}</td>
+                    <td>{{!!ele['v'] ? ele['v'] : 0}}</td>
+                    <td>{{!!ele['w'] ? ele['w'] : 0}}</td>
+                    <td>{{!!ele['x'] ? ele['x'] : 0}}</td>
+                    <td>{{!!ele['y'] ? ele['y'] : 0}}</td>
+                    <td>{{!!ele['z'] ? ele['z'] : 0}}</td>
+                    <td>{{ele['contador']}}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>

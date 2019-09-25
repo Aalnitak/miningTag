@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-12">
+        <a (click)="getInfo()" class="btn btn-danger">get</a>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Number</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">First Position</th>
+                <th scope="col">Last Position</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- ngClass para pintar segun ocurrencia -->
+              <tr 
+              *ngFor="let obj of defArray; let i = index"
+              [ngClass]="{ 
+                verde: obj['frec'] >= 2 , 
+                amarillo: obj['frec'] == 1 , 
+                gris: obj['frec'] < 1 }" >
+
+                <th scope="row">{{i}}</th>
+                <td>{{obj['number']}}</td>
+                <td>{{obj['frec']}}</td>
+                <td>{{obj['primera_pos']}}</td>
+                <td>{{obj['ultima_pos']}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Sorted Array</span>
+          </div>
+          <textarea class="form-control" aria-label="With textarea">
+            {{sortedArray}}
+          </textarea>
+        </div>
+  </div>
+</div>
+
