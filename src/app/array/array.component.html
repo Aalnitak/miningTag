@@ -18,7 +18,8 @@
               </tr>
             </thead>
             <tbody>
-                <!-- ngClass para pintar segun ocurrencia -->
+                <!-- ngClass para pintar segun ocurrencia
+                frecuencia < 1 nunca sucederá -->
               <tr 
               *ngFor="let obj of defArray; let i = index"
               [ngClass]="{ 
@@ -50,7 +51,7 @@
         </div>
   </div>
 </div>
-
+<!-- textbox to show original array -->
 <div class="row">
   <div class="col-md-12">
       <div class="input-group">
