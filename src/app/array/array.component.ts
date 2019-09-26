@@ -22,7 +22,7 @@ export class ArrayComponent implements OnInit {
     this.defArray=[];
     this.sortedArray=['loading...'];
     
-    
+    // get the endpoint data
     this.http.get(this.url)
     .subscribe(
       (res)=>{
@@ -31,10 +31,12 @@ export class ArrayComponent implements OnInit {
           res['data'].forEach(element => {
             this.auxArray.push(element);
           });
-  
+          // data for populate the table
           this.defArray = this.separar(this.auxArray);
+          //sor the array
           this.sortedArray = this.bubble(this.auxArray);
         }else{
+          //fill the variables with dummy data
           this.defArray=[{
             'number': '--',
             'frec': '--',
@@ -43,15 +45,10 @@ export class ArrayComponent implements OnInit {
           }];
           this.sortedArray=['null response, please press the button again'];
         }
-        
-
       });
-    
-    
-    
-      // this.defArray = this.separar(this.auxArray);
   }
-
+  //bubble sort was the election for sorting the array
+  //mainly because its easy implementation and good performance on low count arrays
   bubble(array){
     array = array.slice();
     for( let i=0;i<array.length;i++){ 
@@ -74,8 +71,9 @@ export class ArrayComponent implements OnInit {
 
       for (let j =0; j<objArray.length; j++){
         let aux = Object.entries(objArray[j]);
-
+        // if the array already exists in the objArray
         if(aux[0][1] === array[i]){
+          // homologate object, remove from array and break
           contar = objArray[j];
           objArray.splice(j,1);
           bandera = false;
@@ -87,11 +85,13 @@ export class ArrayComponent implements OnInit {
       
 
       if (bandera){
+        //new array
         contar['number'] = array[i];
         contar['frec'] = 1;
         contar['primera_pos'] = array.indexOf(array[i]);
         contar['ultima_pos'] = array.lastIndexOf(array[i]);        
       }else{
+        //update object
         contar['frec'] += 1;
       }
       
@@ -100,7 +100,7 @@ export class ArrayComponent implements OnInit {
 
       
     }
-
+    //sort by first apearence on array
     objArray.sort(function(a,b){
       if (a.primera_pos > b.primera_pos) return 1;
       if (a.primera_pos < b.primera_pos) return -1;

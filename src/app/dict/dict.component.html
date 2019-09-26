@@ -41,7 +41,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <!-- ngClass para pintar segun ocurrencia -->
+                    <!-- if ocurrency not exist then frecuency = 0 -->
                   <tr *ngFor="let ele of paraTabla; let i = index">
                     <th scope="row">{{i}}</th>
                     <td>{{!!ele['a'] ? ele['a'] : 0}}</td>
@@ -70,7 +70,7 @@
                     <td>{{!!ele['x'] ? ele['x'] : 0}}</td>
                     <td>{{!!ele['y'] ? ele['y'] : 0}}</td>
                     <td>{{!!ele['z'] ? ele['z'] : 0}}</td>
-                    <td>{{ele['contador']}}</td>
+                    <td>{{!!ele['contador'] ? {ele['contador'] : 0}}</td>
                   </tr>
                   
                 </tbody>

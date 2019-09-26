@@ -11,21 +11,22 @@ export class DictComponent implements OnInit {
   url='http://168.232.165.184/prueba/dict';
   private paraTabla=[];
   private array = [];
-  private suma
+  private suma;
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
   }
   getInfo(){
+    //get endPoint data
     this.http.get(this.url)
     .subscribe(
       (res)=>{
 
         res['data'].forEach(element => {
-          //aca separar en una clase custom con los valores paragraph, number, hasCR
+          //fill array with data
           this.array.push(element);
         });
-
+        //procesed object's array to show on front-end
         this.paraTabla= this.separar(this.array);
       }
     );
@@ -33,20 +34,17 @@ export class DictComponent implements OnInit {
   }
 
   separar(arr){
-    
     let todo=[];
-    console.log('haha');
+
     for (let i =0 ; i < arr.length ; i++){
       let auxString:String='';
       let res={};
+      //get the paragraph data and make it lowecase
       auxString = arr[i]['paragraph'];
       auxString = auxString.toLowerCase();
-      console.log(auxString);
-      
-
+      //split and fill object -> letter as a key and frecuency as a value
       auxString.split('').forEach(e => res[e] = res[e] ? res[e]+1 : 1 ) ;
-
-      // auxString.split('').forEach(e => res[e] = (res[e] || 0)+1);
+      //acumulate frecuency for this paragraph
       res['contador'] = this.sumarChars(res);
       todo.push(res);
 
@@ -57,7 +55,9 @@ export class DictComponent implements OnInit {
   }
   sumarChars(tabla){
     let contador=0;
+    // cycle the keys of the object's array
     Object.keys(tabla).forEach(element => {
+      //find lowercase character and acumulate frecuency 
       if (/[a-z]/.test(element)){
         contador += tabla[element];
       }
