@@ -12,6 +12,7 @@ export class ArrayComponent implements OnInit {
   private auxArray:Array<number>;
   private defArray;
   private sortedArray;
+  private originalAraay;
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class ArrayComponent implements OnInit {
   getInfo(){
     this.auxArray=[];
     this.defArray=[];
+    this.originalAraay=[];
     this.sortedArray=['loading...'];
     
     // get the endpoint data
@@ -35,6 +37,7 @@ export class ArrayComponent implements OnInit {
           this.defArray = this.separar(this.auxArray);
           //sor the array
           this.sortedArray = this.bubble(this.auxArray);
+          this.originalAraay = this.auxArray;
         }else{
           //fill the variables with dummy data
           this.defArray=[{
